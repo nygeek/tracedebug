@@ -185,8 +185,8 @@
 
    END OF TERMS AND CONDITIONS
 
-   HP35Stack
-   [] hp35stack.py
+   TRACEDEBUG
+   [] trace_debug.py
 
    Copyright 2026 Marc D Donner
 
