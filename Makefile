@@ -1,0 +1,94 @@
+#
+# TraceDebug Makefile
+#
+
+# Make us OS-independent ... at least for MacOS and Linux
+OS := $(shell uname -s)
+ifeq (Linux, ${OS})
+    DATE := $(shell date --iso-8601)
+else
+    DATE := $(shell date "+%Y-%m-%d")
+endif
+
+# Python version
+PYTHON := python3
+# PYLINT := ${PYTHON} -m pylint
+PYLINT := pylint
+
+HERE := $(shell pwd)
+
+.PHONY: help
+help:
+	cat Makefile
+	echo "OS: " ${OS}
+	echo "PYTHON: " ${PYTHON}
+	echo "DATE: " ${DATE}
+	echo "HERE: " ${HERE}
+
+.PHONY: love
+love:
+	@ echo "Not war."
+
+PYTHON_SOURCE = \
+	trace_debug.py
+
+FILES = \
+	${PYTHON_SOURCE} \
+	.gitignore \
+	LICENSE \
+	Makefile \
+	pylintrc \
+	pyproject.toml \
+	README.md
+
+.PHONY: clean pylint listings test lint ci
+
+.PHONY: install
+install: 
+	@ echo "Figure out how to do an install."
+
+clean:
+	- rm *.ps *.pdf
+
+pylint:
+	- ${PYLINT} trace_debug.py
+
+lint: pylint
+
+.PHONY: test
+test:
+	${PYTHON} trace_debug.py
+
+
+listings: trace_debug.pdf main.pdf
+
+listing-%.ps: %.py
+	enscript -G $< -p $@
+
+listing-Makefile.ps: Makefile
+	enscript -G $< -p $@
+
+%.pdf: %.ps
+	ps2pdf $< $@
+	rm $<
+
+# GIT operations
+
+diff: .gitattributes
+	git diff
+
+.PHONY: status
+status:
+	git status
+
+# this brings the remote copy into sync with the local one
+commit: .gitattributes
+	git commit ${FILES}
+	git push -u origin main
+
+# This brings the local copy into sync with the remote (main)
+pull: .gitattributes
+	git pull origin main
+
+log: .gitattributes
+	git log --pretty=oneline
