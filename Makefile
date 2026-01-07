@@ -34,7 +34,9 @@ PYTHON_SOURCE = \
 
 FILES = \
 	${PYTHON_SOURCE} \
+	.gitattributes \
 	.gitignore \
+	.python-version \
 	LICENSE \
 	Makefile \
 	pylintrc \
