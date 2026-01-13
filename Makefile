@@ -41,7 +41,8 @@ FILES = \
 	Makefile \
 	pylintrc \
 	pyproject.toml \
-	README.md
+	README.md \
+	setup.cfg
 
 .PHONY: clean pylint listings test lint ci
 
