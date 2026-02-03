@@ -29,7 +29,8 @@ requirement.
 
 ## License
 
-Apache License 2.0
+SPDX-License-Identifier: MIT
+Copyright (C) 2026 NYGeek LLC
 
 ## Authors
 
