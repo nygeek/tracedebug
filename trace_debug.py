@@ -1,6 +1,6 @@
 """ Debug using the system trace facility
 
-    Started 2024-09-03 by Marc Donner (marc.donner@gmail.com)
+    Started 2024-09-03 by Marc Donner (marc@nygeek.net)
 
     SPDX-License-Identifier: MIT
     Copyright (C) 2026 NYGeek LLC

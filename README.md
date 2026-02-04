@@ -34,4 +34,4 @@ Copyright (C) 2026 NYGeek LLC
 
 ## Authors
 
-Marc Donner (marc.donner@gmail.com)
+Marc Donner (marc@nygeek.net)
