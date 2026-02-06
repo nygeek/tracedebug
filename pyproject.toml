@@ -10,4 +10,4 @@ description = "tracing machinery for debugging Python programs"
 authors = [
     { name = "Marc Donner", email = "marc@nygeek.net" },
     ]
-requires-python = ">=3.9"
+requires-python = ">=3.5"
